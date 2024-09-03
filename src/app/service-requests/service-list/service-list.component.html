@@ -1,0 +1,104 @@
+<app-service-stats></app-service-stats>
+<div class="alert alert-danger mt-3" role="alert" *ngIf="errorMsg && numServices">
+ <mat-icon>error</mat-icon> {{ errorMsg }}
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card class="mt-4" *ngIf="numServices && !isLoading">
+  <mat-card-content>
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-raised-button color="primary" routerLink="/dashboard/my-orders">My Orders</button>
+        </div>
+        <div class="col-md-6 search-div text-end">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" name="searchKey" [(ngModel)]="searchKey" placeholder="Type here to search..." (keydown)="applyFilter()" autocomplete="off"/>
+            <button *ngIf="searchKey" class="clear-btn" (click)="onSearchClear()" mat-button matSuffix mat-icon-button aria-label="Clear">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="">
+        <table class="" mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+          <!-- Package Column -->
+          <ng-container matColumnDef="package">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by package">
+              Package
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-column-size"> {{element.serviceType}} </td>
+          </ng-container>
+          <!-- Pickup Time Column -->
+          <ng-container matColumnDef="pickupTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pickup time">
+              Pickup Date
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-column-size"> {{formatDate(element.pickupTime)}} </td>
+          </ng-container>
+          <!-- Payment Method Column -->
+          <ng-container matColumnDef="paymentStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by payment status">
+              Payment Status
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-columns table-column-size"> {{element.paymentStatus}} </td>
+          </ng-container>
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by status">
+              Status
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-column-size">
+              <p class="m-0 p-0 service-status"> {{element.status}}</p>
+            </td>
+          </ng-container>
+           <!-- Status Update Column -->
+          <ng-container matColumnDef="statusUpdate">
+            <th mat-header-cell *matHeaderCellDef class="pe-2">
+              Update Status
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-columns">
+              <button class="table-buttons" mat-mini-fab color="primary" class="me-2" (click)="onUpdateStatusDialog(element.id)" matTooltip="Update status" [disabled]="element.status === 'Returned' || element.status === 'Cancelled'">
+                  <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <!-- View More Column -->
+          <ng-container matColumnDef="viewMore">
+            <th mat-header-cell *matHeaderCellDef>
+             View More
+            </th>
+            <td mat-cell *matCellDef="let element" class="table-columns">
+              <button  mat-mini-fab color="primary" class="me-2" (click)=" onViewServiceDialog(element)" matTooltip="View this item">
+                  <span class="material-icons">open_in_new</span>
+                </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator class="mt-0"
+          [length]="totalServices"
+          [pageSize]="limit"
+          [pageSizeOptions]="pageSizeOptions"
+          showFirstLastButtons
+          aria-label="Select page"
+          (page) = "onPageChanged($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<!-- Show if not services returned -->
+<mat-card class="services-not-found-message" *ngIf="!numServices && !isLoading">
+  <mat-card-content>
+    <div class="alert" role="alert">
+      <h2 class="alert-heading"><mat-icon>error</mat-icon> No Orders Found!</h2>
+      <p>{{ errorMsg }}</p>
+      <hr>
+      <p class="mb-0">It seems like no orders were created at the moment.</p>
+      <p class="mb-0">Click <a class="click-here" routerLink="/dashboard/place-order">here</a> to place your first as admin.</p>
+    </div>
+  </mat-card-content>
+</mat-card>
+

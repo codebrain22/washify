@@ -1,0 +1,22 @@
+mat-card {
+  margin-top: 7%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.not-found {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+a:hover {
+  color: #3f51b5;
+}
+mat-icon {
+  vertical-align: middle;
+}

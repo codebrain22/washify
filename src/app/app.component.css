@@ -1,0 +1,26 @@
+main {
+  margin-top: 2%;
+}
+
+mat-spinner {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 35px;
+  }
+  mat-spinner {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .logout-spinner {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+  }
+}

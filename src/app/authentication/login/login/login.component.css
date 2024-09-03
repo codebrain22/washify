@@ -1,0 +1,87 @@
+mat-card {
+  width: 50%;
+  margin-top: 8%;
+  margin-left: auto;
+  margin-right: auto;
+}
+mat-form-field,
+mat-checkbox {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #3f51b5;
+}
+
+p {
+  color: black;
+}
+
+.social-login a {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.social-login a span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 120%;
+}
+.social-login a:hover {
+  color: #fff;
+}
+.social-login a.facebook {
+  background: #3b5998;
+}
+.social-login a.facebook:hover {
+  background: #344e86;
+}
+.social-login a.twitter {
+  background: #1da1f2;
+}
+.social-login a.twitter:hover {
+  background: #0d95e8;
+}
+mat-spinner {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  mat-card {
+    width: 100%;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-right: auto;
+  }
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+.fb-btn {
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  width: 39px;
+  height: 39px;
+  padding: 5px;
+  cursor: pointer;
+}

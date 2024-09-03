@@ -1,0 +1,43 @@
+
+<mat-dialog-content class="mat-typography">
+    <div class="">
+        <div class="wrapper">
+            <div class="profile">
+                <div class="text-center">
+                    <img mat-card-image src="../../../assets/images/profile-icon.png" />
+                </div>
+                <div class="check"><i class="fas fa-check"></i></div>
+                <h3 class="name">{{ user.preferredName }} ({{ user.role }})</h3>
+                <p class="title">{{ user.address || 'Address not provided' }}</p>
+                <p class="title">{{ user.subscription ? subscribed : notSubscribed  }}</p>
+                <p class="description">{{ user.preferredName }} has by far requested <strong>{{ user.services.length }}</strong> services.</p>
+            <div class="social-icons text-center">
+                <div class="icon me-5">
+                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                            <mat-icon>email</mat-icon>
+                        </button>
+                    <p class="mt-1 user-email">{{ user.email }}</p>
+                </div>
+                <div class="icon">
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                        <mat-icon>phone</mat-icon>
+                    </button>
+                    <p class="mt-1">
+                        {{ user.phone ? ((user.phone | slice:0:3) +" "+ (user.phone | slice:3:6) +" "+ (user.phone | slice:6:10)) : 'Not provided'}}
+                    </p>
+                </div>
+            </div>
+            </div>
+
+            <div class="mt-2" *ngIf="user.socialMediaHandles.length > 0">
+                <h4 class="social-media-profiles text-center">Social Media Profiles</h4>
+                <div class = "row text-center" *ngFor="let profile of user.socialMediaHandles">
+                    <a [href]="profile" target="_blank">{{ profile }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Close</button>
+</mat-dialog-actions>

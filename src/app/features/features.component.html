@@ -1,0 +1,115 @@
+<!-- <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">
+  <mat-icon>error</mat-icon> {{ errorMsg }}
+</div> -->
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing pb-3" *ngIf="!errorMsg">
+  <div class="container pb-2">
+    <div class="section-title">
+		<div class="row text-center mt-5 py-3">
+			<div class="col-md-12">
+				<div class="title">
+					<h2>Services and Pricing</h2>
+					<p>Our services are classified into three - Basic, advanced, and Premium.<br> Choose the one that fits your needs.</p>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="row">
+      <div #flipCardBasic class="col-lg-4 col-md-6 flip-card">
+        <div #flipCardInnerBasic class="box flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Basic</h3>
+            <h4><sup>R</sup>679<span> / month</span></h4>
+            <ul>
+              <li>Washing</li>
+              <li>Drying</li>
+              <li class="na">Ironing</li>
+              <li>Folding</li>
+            </ul>
+            <div class="btn-wrap">
+              <a class="btn-buy" (click)="onViewMore('basic')">View More</a>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <mat-icon class="flip-card-close" (click)="onCancel('basic')">cancel</mat-icon>
+            <h1>What We Offer You</h1>
+            <p>Free collection and delivery</p>
+            <p>Free 10kg collection bag</p>
+            <p>Collection once a week for 4 weeks</p>
+            <p>Saving you 65% off on your laundry</p>
+            <div class="btn-wrap">
+              <a class="btn-buy mb-2" (click)="onGetOnceOffDialog('Basic')" *ngIf="!userIsAuthenticated">Get Once Off</a>
+              <br>
+              <a class="btn-buy" (click)="onServiceSubscription('Basic')">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div #flipCardAdvanced class="col-lg-4 col-md-6 mt-4 mt-md-0 flip-card">
+        <div #flipCardInnerAdvanced class="box recommended flip-card-inner">
+          <div class="flip-card-front">
+            <span class="recommended-badge fw-bold pt-1" *ngIf="showRecommendedBadge">Recommended</span>
+            <h3>Advanced</h3>
+            <h4><sup>R</sup>859<span> / month</span></h4>
+            <ul>
+              <li>Washing</li>
+              <li>Drying</li>
+              <li>Ironing</li>
+              <li>Folding</li>
+            </ul>
+            <div class="btn-wrap">
+              <a class="btn-buy" (click)="onViewMore('advanced')">View More</a>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <mat-icon class="flip-card-close" (click)="onCancel('advanced')">cancel</mat-icon>
+            <h1>What We Offer You</h1>
+            <p>Free collection and delivery</p>
+            <p>Free 10kg collection bag</p>
+            <p>Collection once a week for 4 weeks</p>
+            <p>Saving you 65% off on your laundry</p>
+            <div class="btn-wrap">
+              <a class="btn-buy mb-2" (click)="onGetOnceOffDialog('Advanced')" *ngIf="!userIsAuthenticated">Get Once Off</a>
+              <br>
+              <a class="btn-buy" (click)="onServiceSubscription('Advanced')">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div #flipCardPremium class="col-lg-4 col-md-6 mt-4 mt-lg-0 flip-card">
+        <div #flipCardInnerPremium class="box flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Premium</h3>
+            <h4><sup>R</sup>749<span> / month</span></h4>
+            <ul>
+              <li class="na">Washing</li>
+              <li class="na">Drying</li>
+              <li>Ironing</li>
+              <li class="na">Folding</li>
+            </ul>
+            <div class="btn-wrap">
+              <a class="btn-buy" (click)="onViewMore('premium')">View More</a>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <mat-icon class="flip-card-close" (click)="onCancel('premium')">cancel</mat-icon>
+            <h1>What We Offer You</h1>
+            <p>Free collection and delivery</p>
+            <p>Free 10kg collection bag</p>
+            <p>Collection once a week for 4 weeks</p>
+            <p>Saving you 65% off on your laundry</p>
+            <div class="btn-wrap">
+              <a class="btn-buy mb-2" (click)="onGetOnceOffDialog('Premium')" *ngIf="!userIsAuthenticated">Get Once Off</a>
+              <br>
+              <a class="btn-buy" (click)="onServiceSubscription('Premium')">Subscribe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Pricing Section -->

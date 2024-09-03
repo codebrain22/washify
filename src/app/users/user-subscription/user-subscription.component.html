@@ -1,0 +1,12 @@
+<div class="alert alert-danger global-error-message" role="alert" *ngIf="errorMsg">
+ <mat-icon>error</mat-icon> {{ errorMsg }}
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card *ngIf="!isLoading">
+  <mat-card-content>
+    <div class="text-center mt-2">
+      <a class="btn-skip" routerLink="/dashboard/my-orders">Not now, maybe later.</a>
+    </div>
+    <app-features [userIsAuthenticated]="userIsAuthenticated" (serviceSubscription)="addSubscription($event)"></app-features>
+  </mat-card-content>
+</mat-card>

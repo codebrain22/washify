@@ -1,0 +1,60 @@
+<div class="mat-typography">
+    <mat-card-title class="mb-3">Edit Profile</mat-card-title>
+     <form (submit)="onEditProfile(editProfileForm)" #editProfileForm="ngForm">
+         <!-- Preferred Name -->
+         <mat-form-field class="example-full-width">
+           <mat-label>Preferred Name</mat-label>
+           <input matInput type="text" name="preferredName" #name="ngModel" [ngModel]="user.preferredName" required/>
+           <mat-error *ngIf="name.invalid">Preferred name is <strong>required</strong></mat-error>
+         </mat-form-field>  
+         <!-- Address -->
+         <mat-form-field class="example-full-width">
+           <mat-label>Address</mat-label>
+           <input matInput type="text" name="address" #address="ngModel" [ngModel]="user.address" required/>
+           <mat-error *ngIf="address.invalid">Email address is <strong>required</strong></mat-error>
+         </mat-form-field>  
+         <!-- Social Media Handles -->
+         <mat-form-field class="example-chip-list">
+           <mat-label>Social Media Handles</mat-label>
+           <mat-chip-grid #chipList aria-label="Fruit selection">
+             <mat-chip-row *ngFor="let element of user.socialMediaHandles" (removed)="remove(element)">
+               {{element}}
+               <button matChipRemove>
+                 <mat-icon>cancel</mat-icon>
+               </button>
+             </mat-chip-row>
+             <input placeholder="Enter item and click ENTER...(optional)"
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)"
+                   name="socialMediaHandles" #socialMediaHandles="ngModel" ngModel>
+           </mat-chip-grid>
+         </mat-form-field>
+        <!-- Email Address -->
+         <mat-form-field class="example-full-width">
+          <mat-label>Email address</mat-label>
+          <input matInput type="email" name="email" #email="ngModel" [ngModel]="user.email" required email/>
+          <mat-error *ngIf="email.invalid">Email address is <strong>required</strong></mat-error>
+         </mat-form-field>  
+         <!-- Phone Number -->
+          <mat-form-field class="example-full-width">
+           <mat-label>Phone Number</mat-label>
+           <input matInput type="tel" name="phone" #phone="ngModel" [ngModel]="user.phone" required phone/>
+           <mat-error *ngIf="phone.invalid">Phone number is <strong>required</strong></mat-error>
+         </mat-form-field>  
+         <mat-dialog-actions align="end">
+           <button mat-button type="button" (click)="onNoClick()">Cancel</button>
+           <button
+               type="submit"
+               mat-button
+               [mat-dialog-close]="editProfileForm.value"
+               [disabled]="editProfileForm.invalid"
+               cdkFocusInitial>
+               Save
+           </button>
+         </mat-dialog-actions>
+     </form>
+    </div>
+
+

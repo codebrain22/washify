@@ -1,0 +1,30 @@
+mat-card {
+  width: 60%;
+  margin-top: 8%;
+  margin-left: auto;
+  margin-right: auto;
+}
+mat-form-field,
+input {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+mat-spinner {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  mat-card {
+    width: 100%;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-right: auto;
+  }
+}
+
+mat-icon {
+  vertical-align: middle;
+}

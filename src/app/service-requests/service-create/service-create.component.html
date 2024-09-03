@@ -1,0 +1,53 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card *ngIf="!isLoading">
+  <mat-card-title class="mb-3">New Order</mat-card-title>
+  <mat-card-content>
+  <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">
+    <mat-icon>error</mat-icon> {{ errorMsg }}
+  </div>
+  <div class="alert alert-info global-service-error mt-3" role="alert" *ngIf="!user.subscription">
+     <mat-icon>info</mat-icon> You currently don't have any subscription. <strong>You will therefore be charged a once-off fee</strong>
+  </div>
+  <div class="alert alert-warning global-service-error mt-3" role="alert" *ngIf="!user.address || !user.phone">
+     <mat-icon>warning</mat-icon> Please go to your profile to provide your address and phone number before performing this action
+  </div>
+    <form (submit)="onSendRequest(serviceForm)" #serviceForm="ngForm" autocomplete="off">
+      <!-- Service Type -->
+      <mat-radio-group color="primary" name="serviceType" #serviceType="ngModel" ngModel required *ngIf="!user.subscription">
+        <div class="">
+          <div class="mt-3" *ngFor="let service of serviceTypes">
+            <mat-radio-button [value]="service.name">{{ service.description }}</mat-radio-button >
+          </div>
+        </div>
+        <!-- <mat-error class="mt-2" *ngIf="serviceType.invalid">Service type is <strong>required</strong></mat-error> -->
+      </mat-radio-group>
+
+      <!-- Reference -->
+      <mat-form-field class="example-full-width mt-3" matTooltip="This field is not required.">
+        <mat-label>Reference (Optional)</mat-label>
+        <input matInput type="text" name="reference" #paymentReference="ngModel" ngModel/>
+      </mat-form-field>
+      <div class="mt-2">
+        <!-- Pickup date -->
+        <mat-form-field>
+          <mat-label>Pickup Date</mat-label>
+          <input matInput [matDatepicker]="picker" name="pickupTime" #pickupTime="ngModel" [min]="todayDate"  ngModel required/>
+          <mat-datepicker-toggle matSuffix [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="pickupTime.invalid">Pickup time is <strong>required</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <!-- Button -->
+      <button
+        class="mt-3 w-100"
+        type="submit"
+        [disabled]="serviceForm.invalid"
+        mat-raised-button
+        color="primary">
+        Send Request
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+

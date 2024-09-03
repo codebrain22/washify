@@ -1,0 +1,68 @@
+<nav>
+  <input id="nav-toggle" type="checkbox" />
+  <div class="logo">
+    <img src="./../../../assets/images/nav-logo.png" alt="Logo" />
+  </div>
+  <ul class="links">
+    <li *ngIf="!userIsAuthenticated">
+      <a class="nav-link scrollto active" routerLink="/">Home</a>
+    </li>
+    <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+    <li *ngIf="!userIsAuthenticated">
+      <a class="nav-link scrollto" href="#pricing">Services</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a class="nav-link scrollto" href="#contact">Contact</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a class="nav-link scrollto" routerLink="/signin">Sign In</a>
+    </li>
+    <!-- <li *ngIf="!userIsAuthenticated">
+      <a
+        class="nav-link scrollto"
+        routerLink="/signup"
+        >Sign Up</a
+      >
+    </li> -->
+    <li *ngIf="userIsAuthenticated">
+      <a class="nav-link scrollto" routerLink="dashboard/my-profile">Profile</a>
+    </li>
+    <li *ngIf="userIsAuthenticated && userIsAdmin">
+      <a class="nav-link scrollto" routerLink="dashboard/all-users">Users</a>
+    </li>
+    <li *ngIf="userIsAuthenticated && userIsAdmin">
+      <a class="nav-link scrollto" routerLink="dashboard/all-orders">Orders</a>
+    </li>
+    <li>
+      <a
+        class="nav-link scrollto"
+        routerLink="dashboard/my-orders"
+        *ngIf="userIsAuthenticated && !userIsAdmin"
+        >My Orders</a
+      >
+    </li>
+    <!-- <li *ngIf="userIsAuthenticated">
+      <a
+        class="nav-link scrollto"
+        routerLink="dashboard/place-order"
+        >New Order</a
+      >
+    </li> -->
+    <!-- <li>
+      <a
+        class="nav-link scrollto"
+        routerLink="dashboard/payment-details"
+        *ngIf="userIsAuthenticated && userIsAdmin"
+        >More</a
+      >
+    </li> -->
+    <li *ngIf="userIsAuthenticated">
+      <a class="nav-link scrollto" (click)="onLogout()">Sign Out</a>
+    </li>
+  </ul>
+  <label for="nav-toggle" class="icon-burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </label>
+</nav>

@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dialog-responsive {
+  width: 45%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* body{
+    overflow-y:scroll;
+    scrollbar-width: none;
+  } */
+  .dialog-responsive {
+    width: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 0px !important;
+    /* scrollbar-width:scroll;
+    -ms-overflow-style: none; */
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  scrollbar-width:scroll;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.cdk-global-scrollblock{
+  position: static !important;
+  width: initial !important;
+  overflow-y: inherit !important;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

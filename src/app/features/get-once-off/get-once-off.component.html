@@ -1,0 +1,54 @@
+<div class="mat-typography p-5">
+    <mat-card-title class="mb-3 fw-bold">Get Once-Off {{ service.name }} Service</mat-card-title>
+    <div class="alert alert-primary mt-4" role="alert">
+        {{ service.description }}
+    </div>
+    <form (submit)="onGetOnceOff(getOnceOff)" #getOnceOff="ngForm">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Preferred Name</mat-label>
+            <input matInput type="text" name="preferredName" #name="ngModel" ngModel required />
+            <mat-error *ngIf="name.invalid">Preferred name is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- Email Address -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email address</mat-label>
+            <input matInput type="email" name="email" #email="ngModel" ngModel required email/>
+            <mat-error *ngIf="email.invalid">Email address is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- Phone Number -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" name="phone" #phone="ngModel" ngModel required phone/>
+            <mat-error *ngIf="phone.invalid">Phone number is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- Address -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" name="address" #address="ngModel" ngModel required/>
+            <mat-error *ngIf="address.invalid">Email address is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- Reference -->
+        <!-- <mat-form-field class="example-full-width mt-3" matTooltip="This field is not required.">
+            <mat-label>Reference (Optional)</mat-label>
+            <input matInput type="text" name="reference" #paymentReference="ngModel" ngModel/>
+        </mat-form-field> -->
+        <!-- Pickup date -->
+        <mat-form-field appearance="outline">
+          <mat-label>Pickup Date</mat-label>
+          <input matInput [matDatepicker]="picker" name="pickupTime" #pickupTime="ngModel" [min]="todayDate"  ngModel required/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="pickupTime.invalid">Pickup time is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- Mat dialog actions -->
+         <mat-dialog-actions align="end">
+           <button mat-button type="button" (click)="onNoClick()">Cancel</button>
+           <button type="submit" mat-button [mat-dialog-close]="getOnceOff.value" [disabled]="getOnceOff.invalid" cdkFocusInitial>
+               Submit
+           </button>
+         </mat-dialog-actions>
+    </form>
+</div>
+
+
+
