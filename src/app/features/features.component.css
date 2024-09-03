@@ -20,7 +20,7 @@
 }
 .pricing .box h4 {
   font-size: 42px;
-  color: #120A3B;
+  color: #120a3b;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -46,7 +46,7 @@
   padding-bottom: 16px;
 }
 .pricing .box ul i {
-  color: #120A3B;
+  color: #120a3b;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -62,8 +62,8 @@
   display: inline-block;
   padding: 10px 40px 12px 40px;
   border-radius: 50px;
-  border: 2px solid #120A3B;
-  color: #120A3B;
+  border: 2px solid #120a3b;
+  color: #120a3b;
   font-size: 14px;
   font-weight: 400;
   font-weight: 600;
@@ -71,19 +71,19 @@
   cursor: pointer;
 }
 .pricing .box .btn-buy:hover {
-  background: #120A3B;
+  background: #120a3b;
   color: #fff;
 }
 .pricing .recommended {
-  border-color: #120A3B;
+  border-color: #120a3b;
 }
 .pricing .recommended .btn-buy {
-  background: #120A3B;
+  background: #120a3b;
   color: #fff;
 }
 .pricing .recommended .btn-buy:hover {
-  background: #120A3B;
-  border-color: #120A3B;
+  background: #120a3b;
+  border-color: #120a3b;
 }
 .pricing .recommended-badge {
   position: absolute;
@@ -93,7 +93,7 @@
   z-index: 1;
   font-size: 13px;
   padding: 3px 25px 6px 25px;
-  background: #120A3B;
+  background: #120a3b;
   color: #fff;
   border-radius: 50px;
 }
@@ -111,7 +111,7 @@
   content: "";
   width: 40px;
   height: 2px;
-  background: #120A3B;
+  background: #120a3b;
   position: absolute;
   top: 12px;
   left: -60px;
@@ -120,7 +120,7 @@
   content: "";
   width: 40px;
   height: 2px;
-  background: #120A3B;
+  background: #120a3b;
   position: absolute;
   top: 12px;
   right: -60px;
@@ -151,7 +151,7 @@
 } */
 
 .flip-card-hover .flip-card-inner-transform,
-.flip-card-hover:focus .flip-card-inner-transform{
+.flip-card-hover:focus .flip-card-inner-transform {
   transform: rotateY(180deg);
 }
 
@@ -165,7 +165,8 @@
 }
 
 /* Position the front and back side */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -186,20 +187,19 @@
   position: absolute;
   right: -10px;
   top: -30px;
-  color: #120A3B;
+  color: #120a3b;
   cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
   .title h2 {
-  color: #333;
-  font-size: 25px;
-  padding-bottom: 25px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-transform: uppercase;
-  display: inline-block;
-  position: relative;
-}
-
+    color: #333;
+    font-size: 25px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+  }
 }

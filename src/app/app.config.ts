@@ -5,9 +5,10 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { environment } from '../environments/environment';
 
-const GOOGLE_CLIENT_ID = '30074273134-iq09s7va44q5730af5evs17kjmrqqmua.apps.googleusercontent.com';
-const FACEBOOK_APP_ID = '979035830574355';
+const GOOGLE_CLIENT_ID = environment.google_client_id;
+const FACEBOOK_APP_ID = environment.facebook_client_id;
 
 export const appConfig: ApplicationConfig = {
   providers: [
