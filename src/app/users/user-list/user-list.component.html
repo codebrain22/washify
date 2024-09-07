@@ -3,6 +3,7 @@
 <div class="alert alert-danger mt-3" role="alert" *ngIf="errorMsg && numUsers">
   <mat-icon>error</mat-icon> {{ errorMsg }}
 </div>
+
 <mat-spinner class="mt-5" *ngIf="isLoading"></mat-spinner>
 
 <div *ngIf="numUsers && !isLoading">
