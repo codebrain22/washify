@@ -2,6 +2,10 @@
   margin-top: 8%;
 } */
 
+.table-title {
+  font-size: 18px;
+}
+
 mat-form-field,
 input {
   width: 100%;

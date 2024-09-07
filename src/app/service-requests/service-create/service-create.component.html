@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-card *ngIf="!isLoading">
+<mat-card class="p-4" *ngIf="!isLoading">
   <mat-card-title class="mb-3">New Order</mat-card-title>
   <mat-card-content>
   <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">
@@ -23,13 +23,13 @@
       </mat-radio-group>
 
       <!-- Reference -->
-      <mat-form-field class="example-full-width mt-3" matTooltip="This field is not required.">
+      <mat-form-field class="example-full-width mt-3" appearance="outline">
         <mat-label>Reference (Optional)</mat-label>
         <input matInput type="text" name="reference" #paymentReference="ngModel" ngModel/>
       </mat-form-field>
       <div class="mt-2">
         <!-- Pickup date -->
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Pickup Date</mat-label>
           <input matInput [matDatepicker]="picker" name="pickupTime" #pickupTime="ngModel" [min]="todayDate"  ngModel required/>
           <mat-datepicker-toggle matSuffix [for]="picker"

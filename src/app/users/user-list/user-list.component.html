@@ -1,6 +1,13 @@
 <app-user-stats></app-user-stats>
+
+<mat-card class="mt-3 p-4">
+  <div class="row">
+    <span class="table-title fw-bold">All Users</span>
+  </div>
+</mat-card>
+
 <div class="alert alert-danger mt-3" role="alert" *ngIf="errorMsg && numUsers">
- <mat-icon>error</mat-icon> {{ errorMsg }}
+  <mat-icon>error</mat-icon> {{ errorMsg }}
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <mat-card class="mt-4" *ngIf="numUsers && !isLoading">
@@ -8,6 +15,7 @@
     <div>
       <div class="search-div text-end">
         <mat-form-field class="w-100" appearance="outline">
+          <mat-icon matPrefix>search</mat-icon>
           <input matInput type="text" name="searchKey" [(ngModel)]="searchKey" placeholder="Type here to search..." (keydown)="applyFilter()" autocomplete="off"/>
           <button *ngIf="searchKey" class="clear-btn" (click)="onSearchClear()" mat-button matSuffix mat-icon-button aria-label="Clear">
             <mat-icon>clear</mat-icon>
@@ -53,7 +61,7 @@
             <ng-container matColumnDef="viewMore">
               <th mat-header-cell *matHeaderCellDef>View More</th>
               <td mat-cell *matCellDef="let element" class="table-columns">
-                <button mat-mini-fab color="primary" class="me-2" (click)="onViewUserDialog(element)" matTooltip="View this item">
+                <button mat-mini-fab color="basic" class="me-2" (click)="onViewUserDialog(element)" matTooltip="View this item">
                     <span class="material-icons">open_in_new</span>
                   </button>
               </td>
