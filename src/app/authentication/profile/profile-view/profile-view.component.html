@@ -1,60 +1,120 @@
-<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-spinner class="mt-5" *ngIf="isLoading"></mat-spinner>
 <div class="mat-typography">
-    <div class="">
-        <div class="wrapper" *ngIf="user && !isLoading">
-            <div class="alert alert-danger mt-3" role="alert" *ngIf="errorMsg">
-                <mat-icon>error</mat-icon> {{ errorMsg }}
-            </div>
-            <div class="profile">
-                <div class="text-center">
-                    <img mat-card-image src="../../../assets/images/profile-icon.png" />
-                </div>
-                <div class="check"><i class="fas fa-check"></i></div>
-                <h3 class="name">{{ user.preferredName }}</h3>
-                <p class="title">{{ user.address || 'Address not provided' }}</p>
-                <p class="title">{{ user.subscription ? subscribed : notSubscribed  }} <a color="primary" routerLink="/dashboard/subscribe"><mat-icon>edit</mat-icon></a></p>
-                <p class="description mx-5">You has by far requested <strong>{{ user.services.length }}</strong> services. <a class="user-services-link" routerLink="/dashboard/my-orders"><strong>Click here</strong></a> to view all your completed service requests.</p>
-                <div class="social-icons text-center">
-                    <div class="icon me-5">
-                            <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                                <mat-icon>email</mat-icon>
-                            </button>
-                        <p class="mt-1">{{ user.email }}</p>
-                    </div>
-                    <div class="icon">
-                        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                            <mat-icon>phone</mat-icon>
-                        </button>
-                        <p class="mt-1">
-                            {{ user.phone ? ((user.phone | slice:0:3) +" "+ (user.phone | slice:3:6) +" "+ (user.phone | slice:6:10)) : 'Not provided'}}
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div class="">
+    <div class="wrapper" *ngIf="user && !isLoading">
+      <div class="alert alert-danger mt-3" role="alert" *ngIf="errorMsg">
+        <mat-icon>error</mat-icon> {{ errorMsg }}
+      </div>
+      <div class="profile">
+        <div class="text-center">
+          <img mat-card-image src="../../../assets/images/profile-icon.png" />
+        </div>
+        <h3 class="name">{{ user.preferredName }}</h3>
+        <p class="title">{{ user.address || "Address not provided" }}</p>
+        <p class="title">
+          {{ user.subscription ? subscribed : notSubscribed }}
+          <a color="basic" routerLink="/dashboard/subscribe"
+            ><mat-icon class="text-dark">edit</mat-icon></a
+          >
+        </p>
+        <p class="description mx-5">
+          You has by far requested
+          <strong>{{ user.services.length }}</strong> services.
+          <a class="user-services-link" routerLink="/dashboard/my-orders"
+            ><strong>Click here</strong></a
+          >
+          to view all your completed service requests.
+        </p>
+        <div class="social-icons text-center">
+          <div class="icon me-5">
+            <button
+              mat-mini-fab
+              color="basic"
+              aria-label="Example icon button with a menu icon"
+            >
+              <mat-icon>email</mat-icon>
+            </button>
+            <p class="mt-1">{{ user.email }}</p>
+          </div>
+          <div class="icon">
+            <button
+              mat-mini-fab
+              color="basic"
+              aria-label="Example icon button with a menu icon"
+            >
+              <mat-icon>phone</mat-icon>
+            </button>
+            <p class="mt-1">
+              {{
+                user.phone
+                  ? (user.phone | slice : 0 : 3) +
+                    " " +
+                    (user.phone | slice : 3 : 6) +
+                    " " +
+                    (user.phone | slice : 6 : 10)
+                  : "Not provided"
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="mt-2 social-media-profiles" *ngIf="user.socialMediaHandles.length > 0">
-                <h4 class="social-media-profile-header text-center">Social Media Profiles</h4>
-                <div class = "row text-center" *ngFor="let profile of user.socialMediaHandles">
-                    <a [href]="profile" target="_blank">{{ profile }}</a>
-                </div>
-            </div>
-            <div class="action-btns-wrapper mt-4">
-                <button class="profile-action-buttons" mat-flat-button color="primary" (click)="onEditProfileDialog(user)">Edit Profile</button>
-                <a class="mx-2 profile-action-buttons" mat-flat-button color="primary" routerLink="/dashboard/update-password">Update Password</a>
-                <button class="profile-action-buttons" mat-flat-button color="warn" (click)="onDeleteUserAccount()">Delete Account</button>
-            </div>
+      <div
+        class="mt-2 social-media-profiles"
+        *ngIf="user.socialMediaHandles.length > 0"
+      >
+        <h4 class="social-media-profile-header text-center">
+          Social Media Profiles
+        </h4>
+        <div
+          class="row text-center"
+          *ngFor="let profile of user.socialMediaHandles"
+        >
+          <a [href]="profile" target="_blank">{{ profile }}</a>
         </div>
-        <div class="not-profile-data" *ngIf="!user && !isLoading">
-            <mat-card>
-                <mat-card-content>
-                    <div class="alert alert-danger" role="alert">
-                        <h2 class="alert-heading"><mat-icon>error</mat-icon> Looks Like Something Went Wrong!</h2>
-                        <p>We are unable to load your profile. Please refresh the page. If the error still persists, try logging out and in again.</p>
-                        <hr>
-                        <p class="mb-0">We apologize for the inconvenience.</p>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </div>
+      </div>
+      <div class="action-btns-wrapper mt-4">
+        <button
+          class="profile-action-buttons"
+          mat-raised-button
+          color="basic"
+          (click)="onEditProfileDialog(user)"
+        >
+          Edit Profile
+        </button>
+        <a
+          class="mx-2 profile-action-buttons"
+          mat-raised-button
+          color="basic"
+          routerLink="/dashboard/update-password"
+          >Update Password</a
+        >
+        <button
+          class="profile-action-buttons"
+          mat-raised-button
+          color="warn"
+          (click)="onDeleteUserAccount()"
+        >
+          Delete Account
+        </button>
+      </div>
     </div>
+    <div class="not-profile-data" *ngIf="!user && !isLoading">
+      <mat-card>
+        <mat-card-content>
+          <div class="alert alert-danger" role="alert">
+            <h2 class="alert-heading">
+              <mat-icon>error</mat-icon> Looks Like Something Went Wrong!
+            </h2>
+            <p>
+              We are unable to load your profile. Please refresh the page. If
+              the error still persists, try logging out and in again.
+            </p>
+            <hr />
+            <p class="mb-0">We apologize for the inconvenience.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>

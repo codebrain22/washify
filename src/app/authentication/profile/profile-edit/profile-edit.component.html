@@ -1,20 +1,20 @@
-<div class="mat-typography">
-    <mat-card-title class="mb-3">Edit Profile</mat-card-title>
+<div class="mat-typography p-4">
+    <mat-card-title class="mb-3 mat-card-title ">Edit Profile</mat-card-title>
      <form (submit)="onEditProfile(editProfileForm)" #editProfileForm="ngForm">
          <!-- Preferred Name -->
-         <mat-form-field class="example-full-width">
+         <mat-form-field appearance="outline">
            <mat-label>Preferred Name</mat-label>
            <input matInput type="text" name="preferredName" #name="ngModel" [ngModel]="user.preferredName" required/>
            <mat-error *ngIf="name.invalid">Preferred name is <strong>required</strong></mat-error>
          </mat-form-field>  
          <!-- Address -->
-         <mat-form-field class="example-full-width">
+         <mat-form-field appearance="outline">
            <mat-label>Address</mat-label>
            <input matInput type="text" name="address" #address="ngModel" [ngModel]="user.address" required/>
            <mat-error *ngIf="address.invalid">Email address is <strong>required</strong></mat-error>
          </mat-form-field>  
          <!-- Social Media Handles -->
-         <mat-form-field class="example-chip-list">
+         <mat-form-field appearance="outline">
            <mat-label>Social Media Handles</mat-label>
            <mat-chip-grid #chipList aria-label="Fruit selection">
              <mat-chip-row *ngFor="let element of user.socialMediaHandles" (removed)="remove(element)">
@@ -32,13 +32,13 @@
            </mat-chip-grid>
          </mat-form-field>
         <!-- Email Address -->
-         <mat-form-field class="example-full-width">
+         <mat-form-field appearance="outline">
           <mat-label>Email address</mat-label>
           <input matInput type="email" name="email" #email="ngModel" [ngModel]="user.email" required email/>
           <mat-error *ngIf="email.invalid">Email address is <strong>required</strong></mat-error>
          </mat-form-field>  
          <!-- Phone Number -->
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="outline">
            <mat-label>Phone Number</mat-label>
            <input matInput type="tel" name="phone" #phone="ngModel" [ngModel]="user.phone" required phone/>
            <mat-error *ngIf="phone.invalid">Phone number is <strong>required</strong></mat-error>

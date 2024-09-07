@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <mat-card class="p-4" *ngIf="!isLoading">
-  <mat-card-title class="mb-3">New Order</mat-card-title>
+  <mat-card-title class="mb-3 ms-3 fw-bold mat-card-title">Make New Order</mat-card-title>
   <mat-card-content>
   <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">
     <mat-icon>error</mat-icon> {{ errorMsg }}
@@ -44,7 +44,7 @@
         type="submit"
         [disabled]="serviceForm.invalid"
         mat-raised-button
-        color="primary">
+        color="basic">
         Send Request
       </button>
     </form>

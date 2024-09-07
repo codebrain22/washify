@@ -1,8 +1,8 @@
 <div class="alert alert-danger global-error-message" role="alert" *ngIf="errorMsg">
  <mat-icon>error</mat-icon> {{ errorMsg }}
 </div>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-card *ngIf="!isLoading">
+<mat-spinner class="mt-5" *ngIf="isLoading"></mat-spinner>
+<mat-card class="mt-5" *ngIf="!isLoading">
   <mat-card-content>
     <div class="text-center mt-2">
       <a class="btn-skip" routerLink="/dashboard/my-orders">Not now, maybe later.</a>

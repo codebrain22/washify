@@ -1,4 +1,8 @@
 
+.mat-card-title {
+  font-size: 18px;
+}
+
 mat-form-field,
 mat-radio-group {
   width: 100%;
