@@ -1,12 +1,14 @@
-mat-card {
-    margin-top: 10%;
+.mat-card-title {
+  font-size: 18px;
 }
-mat-form-field, input {
-    width: 100%;
+
+mat-form-field,
+input {
+  width: 100%;
 }
 button {
-    display: block;
-    margin-left: auto;
+  display: block;
+  margin-left: auto;
 }
 mat-icon {
   vertical-align: middle;

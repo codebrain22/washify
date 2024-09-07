@@ -12,14 +12,9 @@ mat-radio-button {
   width: 100%;
 }
 
-/* button {
-    display: block;
-    margin-left: auto;
-} */
 mat-spinner {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10%;
 }
 
 mat-icon {

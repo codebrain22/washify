@@ -1,5 +1,5 @@
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-card class="p-4" *ngIf="!isLoading">
+<mat-spinner class="mt-5" *ngIf="isLoading"></mat-spinner>
+<mat-card class="mt-5 p-4" *ngIf="!isLoading">
   <mat-card-title class="mb-3 ms-3 fw-bold mat-card-title">Make New Order</mat-card-title>
   <mat-card-content>
   <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">

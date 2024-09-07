@@ -1,8 +1,8 @@
-<div class="alert alert-danger global-error-message" role="alert" *ngIf="errorMsg && numPaymentDetails">
+<div class="alert alert-danger mt-5" role="alert" *ngIf="errorMsg && numPaymentDetails">
   <mat-icon>error</mat-icon> {{ errorMsg }}
 </div>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-card *ngIf="numPaymentDetails && !isLoading">
+<mat-spinner class="mt-5" *ngIf="isLoading"></mat-spinner>
+<mat-card class="mt-5" *ngIf="numPaymentDetails && !isLoading">
   <mat-card-title>Payment Details List ({{ numPaymentDetails }})</mat-card-title>
   <mat-card-content>
     <div class="add-div text-end mb-3">
@@ -50,7 +50,7 @@
   </mat-card-content>
 </mat-card>
 <!-- Show if no payment details returned -->
-<mat-card class="payment-details-not-found-message" *ngIf="!numPaymentDetails && !isLoading">
+<mat-card class="mt-5" *ngIf="!numPaymentDetails && !isLoading">
   <mat-card-content>
     <div class="alert" role="alert">
       <h2 class="alert-heading"><mat-icon>error</mat-icon> No Payment Details Added!</h2>

@@ -1,18 +1,18 @@
-<mat-card>
-  <mat-card-title class="mb-3">Add Payment Details</mat-card-title>
+<mat-card class="mt-5">
+  <mat-card-title class="mb-3 mat-card-title">Add Payment Details</mat-card-title>
   <mat-card-content>
     <div class="alert alert-danger global-service-error mt-3" role="alert" *ngIf="errorMsg">
       <mat-icon>error</mat-icon> {{ errorMsg }}
     </div>
     <form (submit)="onAddPaymentDetails(paymentDetailsForm)" #paymentDetailsForm="ngForm" autocomplete="off">
       <!-- Account name -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline">
         <mat-label>Account Name</mat-label>
         <input matInput type="text" name="accountName" #accountName="ngModel" ngModel required/>
         <mat-error *ngIf="accountName.invalid">Account name is<strong>required</strong></mat-error>
       </mat-form-field>
       <!-- Bank Name -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline">
         <mat-label>Bank Name</mat-label>
         <mat-select name="bankName" ngModel #bankName="ngModel" required>
           <mat-option *ngFor="let bankName of bankNames" [value]="bankName">
@@ -22,23 +22,23 @@
         <mat-error *ngIf="bankName.invalid">Bank name is <strong>required</strong></mat-error>
       </mat-form-field>
       <!-- Branch Code -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline">
         <mat-label>Branch Code</mat-label>
         <input matInput type="text" name="branchCode" ngModel />
       </mat-form-field>
       <!-- Account Number -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline">
         <mat-label>Account Number</mat-label>
         <input matInput type="number" name="accountNumber" ngModel #accountNumber="ngModel" required/>
         <mat-error *ngIf="accountNumber.invalid">Account number is <strong>required</strong></mat-error>
       </mat-form-field>
       <!-- Reference -->
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline">
         <mat-label>Reference</mat-label>
         <input matInput type="text" name="reference" ngModel />
       </mat-form-field>
       <!-- Button -->
-      <button type="submit" [disabled]="paymentDetailsForm.invalid" color="primary" mat-raised-button>Add</button>
+      <button type="submit" [disabled]="paymentDetailsForm.invalid" color="basic py-4" mat-raised-button>Add</button>
     </form>
   </mat-card-content>
 </mat-card>

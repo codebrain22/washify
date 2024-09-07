@@ -18,10 +18,6 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
-.users-not-found-message {
-  margin-top: 10%;
-}
-
 mat-spinner {
   margin-left: auto;
   margin-right: auto;
