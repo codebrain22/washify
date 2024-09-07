@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -6,7 +10,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
-  withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import {
@@ -16,6 +19,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { environment } from '../environments/environment';
 import { AuthInterceptor } from './authentication/auth-interceptor';
+import { PaystackWrapperModule } from './paystack-wrapper-module';
 
 const GOOGLE_CLIENT_ID = environment.google_client_id;
 const FACEBOOK_APP_ID = environment.facebook_client_id;
@@ -28,6 +32,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi()),
     interceptorProvider(),
     socialLoginProvider(),
+    importProvidersFrom(PaystackWrapperModule),
   ],
 };
 
@@ -58,4 +63,11 @@ function socialLoginProvider() {
   };
 
   return provider;
+}
+function provideAngular4Paystack(
+  arg0: string
+):
+  | import('@angular/core').Provider
+  | import('@angular/core').EnvironmentProviders {
+  throw new Error('Function not implemented.');
 }

@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "angular4-paystack": "^3.1.4",
     "bootstrap": "^5.1.3",
     "moment": "^2.30.1",
     "ngx-gauge": "^9.0.0",

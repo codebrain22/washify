@@ -1,35 +1,37 @@
-<mat-dialog-content class="mat-typography px-5">
-  <h2 mat-dialog-title>Service Subscription</h2>
-  <table class="table table-borderless w-100">
-    <tr>
-      <td>Plan Name</td>
-      <td class="text-end">{{ subscription.serviceName }}</td>
-    </tr>
-    <tr>
-      <td>Interval</td>
-      <td class="text-end">{{ subscription.interval }}</td>
-    </tr>
-     <tr>
-      <td>Amount</td>
-      <td class="text-end">R{{ subscription.amount.toString() | slice:0:3 }}.00</td>
-    </tr>
-    <tr>
-
-    </tr>
-</table>
-<!-- <angular4-paystack
-  class="w-100 mt-4 mb-2"
-  [email]="subscription.email"
-  [amount]="subscription.amount"
-  [plan]="subscription.plan"
-  [currency]="currency"
-  [ref]="reference"
-  [class]="'btn btn-dark'"
-  [channels]="['bank']"
-  (onClose)="paymentCancel()"
-  (callback)="paymentDone($event)">
-  Add Subscription Payment Details
-</angular4-paystack> -->
+<mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title class="mat-dialog-title fw-bold">Service Subscription</h2>
+  <div class="px-4">
+    <table class="table table-borderless w-100">
+      <tr>
+        <td>Plan Name</td>
+        <td class="text-end">{{ subscription.serviceName }}</td>
+      </tr>
+      <tr>
+        <td>Interval</td>
+        <td class="text-end">{{ subscription.interval }}</td>
+      </tr>
+       <tr>
+        <td>Amount</td>
+        <td class="text-end">R{{ subscription.amount.toString() | slice:0:3 }}.00</td>
+      </tr>
+      <tr>
+  
+      </tr>
+    </table>
+    <angular4-paystack
+      class="w-100 mt-4 mb-2"
+      [email]="subscription.email"
+      [amount]="subscription.amount"
+      [plan]="subscription.plan"
+      [currency]="currency"
+      [ref]="reference"
+      [class]="'btn btn-dark'"
+      [channels]="['bank']"
+      (onClose)="paymentCancel()"
+      (callback)="paymentDone($event)">
+      Add Subscription Payment Details
+    </angular4-paystack>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>

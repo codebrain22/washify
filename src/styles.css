@@ -8,7 +8,6 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 a {
@@ -56,7 +55,3 @@ a {
   overflow-y: inherit !important;
 }
 
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
