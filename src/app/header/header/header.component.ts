@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatIcon,
   ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {

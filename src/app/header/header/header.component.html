@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <input id="nav-toggle" type="checkbox" />
   <div class="logo">
     <img src="./../../../assets/images/nav-logo.png" alt="Logo" />
@@ -7,7 +7,7 @@
     <li *ngIf="!userIsAuthenticated">
       <a class="nav-link scrollto active" routerLink="/">Home</a>
     </li>
-    <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+    <li><a class="nav-link scrollto" href="#about">About</a></li>
     <li *ngIf="!userIsAuthenticated">
       <a class="nav-link scrollto" href="#pricing">Services</a>
     </li>
@@ -17,13 +17,13 @@
     <li *ngIf="!userIsAuthenticated">
       <a class="nav-link scrollto" routerLink="/signin">Sign In</a>
     </li>
-    <!-- <li *ngIf="!userIsAuthenticated">
+    <li *ngIf="!userIsAuthenticated">
       <a
         class="nav-link scrollto"
         routerLink="/signup"
         >Sign Up</a
       >
-    </li> -->
+    </li>
     <li *ngIf="userIsAuthenticated">
       <a class="nav-link scrollto" routerLink="dashboard/my-profile">Profile</a>
     </li>
@@ -41,21 +41,21 @@
         >My Orders</a
       >
     </li>
-    <!-- <li *ngIf="userIsAuthenticated">
+    <li *ngIf="userIsAuthenticated">
       <a
         class="nav-link scrollto"
         routerLink="dashboard/place-order"
         >New Order</a
       >
-    </li> -->
-    <!-- <li>
+    </li>
+    <li>
       <a
         class="nav-link scrollto"
         routerLink="dashboard/payment-details"
         *ngIf="userIsAuthenticated && userIsAdmin"
         >More</a
       >
-    </li> -->
+    </li>
     <li *ngIf="userIsAuthenticated">
       <a class="nav-link scrollto" (click)="onLogout()">Sign Out</a>
     </li>
@@ -65,4 +65,68 @@
     <div class="line"></div>
     <div class="line"></div>
   </label>
-</nav>
+</nav> -->
+
+<!-- Navbar start -->
+<div class="container-fluid sticky-top px-0">
+  <div class="container-fluid topbar d-none d-lg-block">
+      <div class="container px-0">
+          <div class="row align-items-center">
+              <div class="col-lg-8">
+                  <div class="d-flex flex-wrap">
+                      <a class="me-4 text-light"><i class="fas fa-map-marker-alt me-2"></i>Location Us</a>
+                      <a class="me-4 text-light"><i class="fas fa-phone-alt me-2"></i>(+27) 12 456 7890</a>
+                      <a class="text-light"><i class="fas fa-envelope me-2"></i>washify&#64;info.com</a>
+                  </div>
+
+              </div>
+              <div class="col-lg-4">
+                  <div class="d-flex align-items-center justify-content-end">
+                      <a class="me-3 btn-square border rounded-circle nav-fill"><i class="fab fa-facebook-f text-light"></i></a>
+                      <a class="me-3 btn-square border rounded-circle nav-fill"><i class="fab fa-twitter text-light"></i></a>
+                      <a class="me-3 btn-square border rounded-circle nav-fill"><i class="fab fa-instagram text-light"></i></a>
+                      <a class="btn-square border rounded-circle nav-fill"><i class="fab fa-linkedin-in text-light"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid bg-light">
+      <div class="container px-0">
+          <nav class="navbar navbar-light navbar-expand-xl">
+              <a href="index.html" class="navbar-brand">
+                  <p class="navbar-heading">Washify</p>
+              </a>
+              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="fa fa-bars" style="color: #0E0D32;"></span>
+              </button>
+              <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
+                  <div class="navbar-nav mx-auto border-top">
+                    @if(userIsAuthenticated) {
+                      <a class="nav-item nav-link" routerLink="dashboard/my-profile">Profile</a>
+                      <a class="nav-item nav-link" routerLink="dashboard/all-orders">Orders</a>
+                      <a class="nav-item nav-link" routerLink="dashboard/all-users">Users</a>
+                      <a class="nav-item nav-link">Logout</a>
+                    }
+                    @else {
+                      <a class="nav-item nav-link fw-bolder" routerLink="/">Home</a>
+                      <a class="nav-item nav-link fw-bolder" routerLink="/">About</a>
+                      <a href="#pricing" class="nav-item nav-link fw-bolder">Services</a>
+                      <a href="#contact" class="nav-item nav-link fw-bolder">Contacts</a>
+                    }
+                  </div>
+                  <div class="d-flex align-items-center flex-nowrap pt-xl-0">
+                    @if(userIsAuthenticated) {
+                      <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4" (click)="onLogout()">Logout</a>
+                    }
+                    @else {
+                      <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4" routerLink="/signin">Book Appointment</a>
+                    }
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div>
+</div>
+<!-- Navbar End -->
+ 

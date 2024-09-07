@@ -1,4 +1,4 @@
-#hero {
+/* #hero {
   width: 100%;
   height: 60vh;
   background: url("./../../assets/images/banner-img.jpg") center center;
@@ -70,4 +70,104 @@
     margin-bottom: 30px;
   }
 }
+ */
 
+/*** Carousel Start ***/
+.carousel-item {
+  position: relative;
+  min-height: 100vh;
+}
+
+.carousel-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item .carousel-caption {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  );
+  background-size: cover;
+}
+
+.carousel-item .carousel-title {
+  margin-top: 0;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 22px;
+  word-spacing: 5px;
+}
+
+.carousel-item .carousel-sub-title {
+  font-weight: bolder;
+  font-size: 300%;
+  margin-bottom: 4%;
+  line-height: 110%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+}
+
+.carousel-control-prev .carousel-control-prev-icon,
+.carousel-control-next .carousel-control-next-icon {
+  background: transparent;
+}
+
+#carouselId .carousel-indicators {
+  padding-bottom: 30px;
+}
+
+#carouselId .carousel-indicators li {
+  border-top: 10px solid var(--bs-white);
+  border-bottom: 10px solid var(--bs-white);
+  border-right: 5px solid var(--bs-white);
+  border-left: 5px solid var(--bs-white);
+  margin-right: 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.carousel-item .carousel-caption .btn-primary {
+  background: #0E0D32;
+}
+
+#carouselId .carousel-indicators li.active {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  border-right: 15px solid var(--bs-primary);
+  border-left: 15px solid var(--bs-primary);
+}
+
+#carouselId[_ngcontent-ng-c2825024053] .carousel-indicators[_ngcontent-ng-c2825024053] li.active[_ngcontent-ng-c2825024053] {
+  background: #0E0D32;
+  border-color: #0E0D32;
+  border-right: 15px solid #0E0D32;
+  border-left: 15px solid #0E0D32;
+}
+
+/* #carouselId .carousel-btn {
+  background: #0E0D32;
+} */
+/*** Carousel End ***/
+
+.bg-breadcrumb {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./../../assets/images/appointment-background.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
