@@ -7,7 +7,7 @@
   <mat-card-content>
     <div>
       <div class="search-div text-end">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100" appearance="outline">
           <input matInput type="text" name="searchKey" [(ngModel)]="searchKey" placeholder="Type here to search..." (keydown)="applyFilter()" autocomplete="off"/>
           <button *ngIf="searchKey" class="clear-btn" (click)="onSearchClear()" mat-button matSuffix mat-icon-button aria-label="Clear">
             <mat-icon>clear</mat-icon>

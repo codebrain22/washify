@@ -7,13 +7,14 @@ import {
 import { User } from '../user.model';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.css'],
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatIconModule],
+  imports: [CommonModule, MatDialogModule, MatIconModule, MatButtonModule],
 })
 export class UserViewComponent implements OnInit {
   notSubscribed: string = 'CURRENTLY NOT SUBSCRIBED TO ANY SERVICE';

@@ -4,13 +4,14 @@ import { User } from '../user.model';
 import { UserService } from '../user.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 @Component({
   selector: 'app-user-stats',
   templateUrl: './user-stats.component.html',
   styleUrls: ['./user-stats.component.css'],
   standalone: true,
-  imports: [CommonModule, MatCardModule]
+  imports: [CommonModule, MatCardModule, NgxGaugeModule]
 })
 export class UserStatsComponent implements OnInit, OnDestroy {
   totalUsers: number = 0;

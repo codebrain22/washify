@@ -83,6 +83,7 @@ export class UserService {
       .get<{ status: string; data: {user: User} }>(`${BACKEND_USERS_URL}/${id}`)
       .subscribe(
         (response) => {
+          console.log('USER_RESPONSE: ', response)
           this.user = response.data['user'];
           this.userUpdated.next({ ...this.user });
           this.isLoadingListener.next(false);

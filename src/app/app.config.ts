@@ -3,9 +3,19 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
-import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptors,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
 import { environment } from '../environments/environment';
+import { AuthInterceptor } from './authentication/auth-interceptor';
 
 const GOOGLE_CLIENT_ID = environment.google_client_id;
 const FACEBOOK_APP_ID = environment.facebook_client_id;
@@ -15,13 +25,18 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideHttpClient(),
-    socialLoginProvider(), provideAnimationsAsync(), provideAnimationsAsync(),
+    provideHttpClient(withInterceptorsFromDi()),
+    interceptorProvider(),
+    socialLoginProvider(),
   ],
 };
 
+function interceptorProvider() {
+  return { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true };
+}
+
 function socialLoginProvider() {
-  const provider =  {
+  const provider = {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,

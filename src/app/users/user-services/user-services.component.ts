@@ -18,6 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserStatsComponent } from '../user-stats/user-stats.component';
+import { RouterModule } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-user-services',
@@ -27,10 +30,13 @@ import { UserStatsComponent } from '../user-stats/user-stats.component';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -83,6 +89,8 @@ export class UserServicesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.isLoading = true;
     this.userId = this.authService.getUserId() ?? '';
+    console.log('USER_ID: ', this.userId)
+
     this.userService.getUser(this.userId);
     this.userListenerSubs = this.userService
       .getUserUpdateListener()
@@ -128,7 +136,7 @@ export class UserServicesComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         this.isLoading = true;
         const service: ServiceRequest = {
-          id: '',
+          _id: '',
           serviceType: userService.serviceType,
           reference: userService.reference,
           pickupTime: userService.pickupTime,

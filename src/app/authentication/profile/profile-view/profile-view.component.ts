@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-profile-view',
@@ -18,9 +20,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatButtonModule,
+    MatIconModule
   ],
 })
 export class ProfileViewComponent implements OnInit, OnDestroy {

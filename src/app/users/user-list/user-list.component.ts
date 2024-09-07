@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ServiceStatsComponent } from '../../service-requests/service-stats/service-stats.component';
 import { UserStatsComponent } from '../user-stats/user-stats.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-user-list',
@@ -30,6 +32,8 @@ import { UserStatsComponent } from '../user-stats/user-stats.component';
     MatProgressSpinnerModule,
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,

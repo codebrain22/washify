@@ -50,8 +50,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((user) => {
       if (user) {
-        // this.authService.socialLogin(user);
-        console.log('USER: ', user)
+        this.authService.socialLogin(user);
+        // console.log('USER: ', user)
       }
     });
     this.errorSubscription = this.authService

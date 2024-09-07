@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { UserService } from '../../user.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './subscribe.component.html',
   styleUrls: ['./subscribe.component.css'],
   standalone: true,
-  imports: [CommonModule, MatDialogModule]
+  imports: [CommonModule, MatDialogModule, MatButtonModule]
 })
 export class SubscribeComponent {
   currency = 'ZAR';

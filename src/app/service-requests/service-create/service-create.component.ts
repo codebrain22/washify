@@ -15,6 +15,9 @@ import { UserService } from '../../users/user.service';
 import {MatRadioModule} from '@angular/material/radio'; 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ServiceRequest } from '../service-requests.model';
 
 @Component({
   selector: 'app-service-create',
@@ -28,6 +31,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatProgressSpinnerModule,
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule
@@ -142,8 +147,8 @@ export class ServiceCreateComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         this.isLoading = true;
         
-        const service = {
-          id: '',
+        const service: ServiceRequest  = {
+          _id: undefined,
           serviceType: this.selectedServiceType.name || this.user.subscription,
           reference: form.value.reference,
           pickupTime: form.value.pickupTime,
@@ -151,9 +156,9 @@ export class ServiceCreateComponent implements OnInit, OnDestroy {
           paymentStatus: this.user.subscription ? 'Monthly' : 'Pending',
           status: this.status[0],
           requestedOn: new Date(Date.now()).toISOString(),
-          returnedOn: '',
+          returnedOn: undefined,
           owner: this.userId,
-          onceOff: ''
+          onceOff: undefined
         };
         
         //Request a service

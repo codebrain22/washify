@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,6 +21,7 @@ type SubscriptionType = { [key: string]: { [key: string]: string | number } };
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,

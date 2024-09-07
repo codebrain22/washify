@@ -4,6 +4,7 @@ import { ServiceRequestService } from '../service-request.service';
 import { ServiceRequest } from '../service-requests.model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 @Component({
   selector: 'app-service-stats',
@@ -13,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     MatCardModule,
+    NgxGaugeModule
   ],
 })
 export class ServiceStatsComponent implements OnInit, OnDestroy {

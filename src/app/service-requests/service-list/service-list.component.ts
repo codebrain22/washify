@@ -20,6 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { ServiceStatsComponent } from '../service-stats/service-stats.component';
+import { RouterModule } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-service-list',
@@ -29,10 +32,13 @@ import { ServiceStatsComponent } from '../service-stats/service-stats.component'
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -149,6 +155,7 @@ export class ServiceListComponent implements OnInit, OnDestroy {
   }
 
   onUpdateStatusDialog(serviceId: string): void {
+    console.log('SERV ID: ', serviceId)
     const dialogRef = this.dialog.open(ServiceEditComponent, {
       panelClass: 'dialog-responsive',
       data: serviceId,

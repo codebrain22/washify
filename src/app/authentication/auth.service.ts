@@ -145,6 +145,7 @@ export class AuthService {
       .subscribe(
         (response) => {
           const token = response.token;
+          console.log('response: ', response);
           this.token = token;
           if (token) {
             const user = response.data['user'];

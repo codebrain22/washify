@@ -6,7 +6,6 @@ import { ServiceRequest } from './service-requests.model';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { Service } from 'bonjour';
 import { User } from '../users/user.model';
 
 const BACKEND_USERS_URL = `${environment.apiUrl}/users`;
@@ -28,15 +27,17 @@ export class ServiceRequestService {
   getServices(page: number, limit: number) {
     const queryParameters = `?page=${page}&limit=${limit}`;
     this.http
-      .get<{ status: string; result: number; data: {services: ServiceRequest[]} }>(
-        `${BACKEND_SERVICES_URL}${queryParameters}`
-      )
+      .get<{
+        status: string;
+        result: number;
+        data: { services: ServiceRequest[] };
+      }>(`${BACKEND_SERVICES_URL}${queryParameters}`)
       .pipe(
         map((serviceData) => {
           return {
             services: serviceData.data['services'].map((service) => {
               return {
-                id: service.id,
+                _id: service._id,
                 serviceType: service.serviceType,
                 reference: service.reference,
                 pickupTime: service.pickupTime,
@@ -89,39 +90,35 @@ export class ServiceRequestService {
       );
     }
 
-    if (httpMethod) {
-      httpMethod.subscribe(
-        (response) => {
-          this.isLoadingListener.next(false);
-          this.errorListener.next({ message: '' });
-          this.showSweetAlertToast(
-            'Request Received!',
-            "We'll get back to you in a moment",
-            'success'
-          );
-        },
-        (error) => {
-          this.isLoadingListener.next(false);
-          this.errorListener.next({ message: error.error.message });
-          this.showSweetAlertToast(
-            'Request Failed',
-            'Error occurred while sending the request!',
-            'error'
-          );
-        }
-      );
-
-    }
-
+    httpMethod.subscribe(
+      (response) => {
+        this.isLoadingListener.next(false);
+        this.errorListener.next({ message: '' });
+        this.showSweetAlertToast(
+          'Request Received!',
+          "We'll get back to you in a moment",
+          'success'
+        );
+      },
+      (error) => {
+        this.isLoadingListener.next(false);
+        this.errorListener.next({ message: error.error.message });
+        this.showSweetAlertToast(
+          'Request Failed',
+          'Error occurred while sending the request!',
+          'error'
+        );
+      }
+    );
   }
 
   addService(service: ServiceRequest, user?: User) {
-    this.http
-      .post<{ status: string; data: {newService: ServiceRequest} }>(BACKEND_SERVICES_URL, service)
-      .subscribe(
-        (response) => {
-          // Get returned service Id
-          const serviceId = { service: response.data['newService'].id };
+    this.http.post<{ status: string; data: { newService: ServiceRequest } }>(BACKEND_SERVICES_URL, service)
+      .subscribe({
+        next: (response) => {
+          console.log('service: ', response.data['newService'])
+          // debugger;
+          const serviceId = { service: response.data['newService']._id };
           if (user) {
             // Create user
             this.createOrUpdateUser(
@@ -137,12 +134,12 @@ export class ServiceRequestService {
             this.router.navigate(['/dashboard/my-orders']);
             this.showSweetAlertToast(
               'Order Received',
-              'Your order was successfully created. We\'ll get back to you in a moment.',
+              "Your order was successfully created. We'll get back to you in a moment.",
               'success'
             );
           }
         },
-        (error) => {
+        error: (error) => {
           this.isLoadingListener.next(false);
           this.errorListener.next({ message: error.error.message });
           // Show error alert
@@ -151,8 +148,8 @@ export class ServiceRequestService {
             'Something wrong happened. Please try again, or contact if the issue persists.',
             'error'
           );
-        }
-      );
+        },
+      });
   }
 
   updateStatus(id: string, status: string) {
@@ -171,7 +168,7 @@ export class ServiceRequestService {
       )
       .subscribe(
         (response) => {
-          const index = this.services.findIndex((s) => s.id === id);
+          const index = this.services.findIndex((s) => s._id === id);
           this.services[index].status = service.status;
           this.showSweetAlertToast(
             'Status Updated',
