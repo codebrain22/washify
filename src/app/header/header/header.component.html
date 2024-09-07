@@ -103,9 +103,20 @@
               <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                   <div class="navbar-nav mx-auto border-top">
                     @if(userIsAuthenticated) {
-                      <a class="nav-item nav-link" routerLink="dashboard/my-profile">Profile</a>
-                      <a class="nav-item nav-link" routerLink="dashboard/all-orders">Orders</a>
-                      <a class="nav-item nav-link" routerLink="dashboard/all-users">Users</a>
+                      <div class="d-flex align-items-center">
+                        <a class="nav-item nav-link d-flex align-items-sm-center justify-content-center" routerLink="dashboard/my-profile">
+                          <mat-icon class="me-2" matPrefix>person</mat-icon>
+                          Profile
+                        </a>
+                        <a class="nav-item nav-link d-flex align-items-center justify-content-center" routerLink="dashboard/all-orders">
+                          <mat-icon class="me-2" matPrefix>shopping_basket</mat-icon>
+                          Orders
+                        </a>
+                        <a class="nav-item nav-link d-flex align-items-center justify-content-center" routerLink="dashboard/all-users">
+                          <mat-icon class="me-2" matPrefix>group</mat-icon>
+                          Users
+                        </a>
+                      </div>
                     }
                     @else {
                       <a class="nav-item nav-link fw-bolder" routerLink="/">Home</a>
@@ -116,7 +127,10 @@
                   </div>
                   <div class="d-flex align-items-center flex-nowrap pt-xl-0">
                     @if(userIsAuthenticated) {
-                      <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4" (click)="onLogout()">Logout</a>
+                      <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 d-flex align-items-center justify-content-center" (click)="onLogout()">
+                        <mat-icon class="me-2" matPrefix>logout</mat-icon>
+                        Logout
+                      </a>
                     }
                     @else {
                       <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4" routerLink="/signin">Book Appointment</a>

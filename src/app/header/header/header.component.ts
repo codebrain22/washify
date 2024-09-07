@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ import { MatIcon } from '@angular/material/icon';
     FormsModule,
     RouterModule,
     MatIcon,
+    MatButtonModule
   ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
